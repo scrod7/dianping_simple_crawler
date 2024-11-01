@@ -33,12 +33,12 @@ for page in tqdm(range(1, need_pages+1), desc='搜索页数'):
     if not search_res:
         break
     print(search_res)
-    for each_search_res in tqdm(search_res, desc='详细爬取'):
-        # 爬取推荐菜
-        shop_id = each_search_res['店铺id']
-        each_detail_res = d.get_detail(shop_id)
-        each_search_res.update(each_detail_res)
-        print(each_search_res)
+    # for each_search_res in tqdm(search_res, desc='详细爬取'):
+    #     # 爬取推荐菜
+    #     shop_id = each_search_res['店铺id']
+    #     each_detail_res = d.get_detail(shop_id)
+    #     each_search_res.update(each_detail_res)
+    #     print(each_search_res)
 
     if len(search_res) < 15:
         break
