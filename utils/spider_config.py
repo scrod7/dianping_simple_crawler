@@ -32,8 +32,6 @@ class Config():
         self.USE_COOKIE_POOL = True if global_config.getRaw('config', 'use_cookie_pool') == 'True' else False
         self.COOKIE = global_config.getRaw('config', 'Cookie')
         self.USER_AGENT = global_config.getRaw('config', 'user-agent')
-        self.SAVE_MODE = global_config.getRaw('config', 'save_mode')
-        self.MONGO_PATH = global_config.getRaw('config', 'mongo_path')
         self.REQUESTS_TIMES = global_config.getRaw('config', 'requests_times')
         self.UUID = global_config.getRaw('config', 'uuid')
         self.TCV = global_config.getRaw('config', 'tcv')
@@ -41,9 +39,6 @@ class Config():
         # config 的 detail
         self.KEYWORD = global_config.getRaw('detail', 'keyword')
         self.LOCATION_ID = global_config.getRaw('detail', 'location_id')
-        self.CHANNEL_ID = global_config.getRaw('detail', 'channel_id')
-        self.SEARCH_URL = global_config.getRaw('detail', 'search_url')
-        assert self.SEARCH_URL == '' or self.SEARCH_URL.endswith('p'), 'search_url 没有拼接p'
         self.CITIES = global_config.getRaw('detail', 'cities')
         self.NEED_FIRST = True if global_config.getRaw('detail', 'need_first') == 'True' else False
         try:
@@ -73,9 +68,6 @@ class Config():
 
         # require 的 shop phone
         self.NEED_DETAIL = True if require_config.getRaw('shop_phone', 'need') == 'True' else False
-        self.NEED_PHONE_DETAIL = True if require_config.getRaw('shop_phone', 'need_detail') == 'True' else False
-        if self.NEED_PHONE_DETAIL:
-            print('开启了电话详情模式，会降低速度并增加反爬概率')
 
         # require 的 shop location
         self.NEED_LOCATION = True if require_config.getRaw('shop_location', 'need') == 'True' else False
